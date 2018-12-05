@@ -30,9 +30,7 @@ class _PageDemoState extends State<PagerDemo> {
                     childrenDelegate: new SliverChildBuilderDelegate(
                       (context, index) => new _SimplePage(
                             '$index',
-                            parallaxOffset: constraints.maxWidth /
-                                2.0 *
-                                (index - _currentPage),
+                            parallaxOffset: constraints.maxWidth / 2.0 * (index - _currentPage),
                           ),
                       childCount: 10,
                     ),

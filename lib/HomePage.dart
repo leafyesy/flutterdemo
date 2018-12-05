@@ -1,5 +1,5 @@
 import 'package:demo1/HomeItemPhotoType.dart';
-import 'package:demo1/PagerDemo.dart';
+import 'package:demo1/PageDemo2.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,10 +16,16 @@ class HomePageState extends State<HomePage> {
         title: const Text('ID_PHOTO'),
       ),
       body: new Column(
+        verticalDirection: VerticalDirection.down,
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           _buildGridViewExtent(),
-          new Text('hhh'),
+          new Container(
+              color: Color.fromARGB(255, 33, 33, 33),
+              height: 100.0,
+              width: double.infinity,
+              alignment: Alignment.topCenter,
+              child: new PageDemo2()),
 //          new PagerDemo()
         ],
       ));
@@ -27,6 +33,7 @@ class HomePageState extends State<HomePage> {
   Widget _buildGridViewExtent() {
     return new GridView.extent(
         //for usable to column
+        controller: ScrollController(keepScrollOffset: false),
         shrinkWrap: true,
         maxCrossAxisExtent: 150.0,
         padding: const EdgeInsets.all(20.0),

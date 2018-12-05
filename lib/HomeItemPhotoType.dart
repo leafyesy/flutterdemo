@@ -10,7 +10,6 @@ class HomeItemPhotoType extends StatefulWidget {
 class Item extends State<HomeItemPhotoType> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
