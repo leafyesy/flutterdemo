@@ -1,19 +1,19 @@
-import 'package:demo1/HomeItemPhotoType.dart';
-import 'package:demo1/PageDemo2.dart';
 import 'package:flutter/material.dart';
+import 'package:demo1/PageDemo2.dart';
+import 'package:demo1/HomeItemPhotoType.dart';
 
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new HomePageState();
+    return _HomePage();
   }
 }
 
-class HomePageState extends State<HomePage> {
+class _HomePage extends State {
   @override
   Widget build(BuildContext context) => new Scaffold(
       appBar: new AppBar(
-        title: const Text('ID_PHOTO'),
+        title: Text('ID_PHOTO'),
       ),
       body: new Column(
         verticalDirection: VerticalDirection.down,
@@ -30,6 +30,18 @@ class HomePageState extends State<HomePage> {
         ],
       ));
 
+  //获取头部总的图标的个数
+  List<Widget> getHomeItemList() {
+    return <Widget>[
+      new HomeItemPhotoType(),
+      new HomeItemPhotoType(),
+      new HomeItemPhotoType(),
+      new HomeItemPhotoType(),
+      new HomeItemPhotoType(),
+      new HomeItemPhotoType()
+    ];
+  }
+
   Widget _buildGridViewExtent() {
     return new GridView.extent(
         //for usable to column
@@ -39,12 +51,6 @@ class HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(20.0),
         mainAxisSpacing: 0.0,
         crossAxisSpacing: 0.0,
-        children: <Widget>[
-          new HomeItemPhotoType(),
-          new HomeItemPhotoType(),
-          new HomeItemPhotoType(),
-          new HomeItemPhotoType(),
-          new HomeItemPhotoType(),
-        ]);
+        children: getHomeItemList());
   }
 }
