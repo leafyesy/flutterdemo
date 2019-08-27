@@ -1,5 +1,5 @@
-name: demo1
-description: A new Flutter project.
+name: demo1 # 应用或包名称
+description: A new Flutter project. # 应用或包的描述、简介。
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -7,12 +7,12 @@ description: A new Flutter project.
 # Both the version and the builder number may be overridden in flutter
 # build by specifying --build-name and --build-number, respectively.
 # Read more about versioning at semver.org.
-version: 1.0.0+1
+version: 1.0.0+1 # 应用或包的版本号。
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.1.0 <3.0.0"
 
-dependencies:
+dependencies: # 应用或包依赖的其它包或插件。
   flutter:
     sdk: flutter
 
@@ -20,25 +20,49 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   english_words: ^3.1.0
+  camera:
+  path_provider:
+  path:
+    # 使用本地包 包名为pkg1
+#  pkg1:
+#    path: ../../code/pkg1
+    # 使用git仓库
+#  pkg1:
+#    git:
+#      url: git://github.com/xxx/pkg1.git
 
-dev_dependencies:
+dev_dependencies: #开发环境依赖的工具包（而不是flutter应用本身依赖的包）。
   flutter_test:
     sdk: flutter
+  cupertino_icons: ^0.1.2
+  english_words: ^3.1.0
+  camera:
+  path_provider:
+  path:
 
+
+# https://pub.dartlang.org/  Google官方的Dart Packages仓库
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 
 # The following section is specific to Flutter.
-flutter:
+flutter: # flutter相关的配置选项
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
 
+  # 资源文件 assets是会打包到程序安装包中的，可在运行时访问。
+  # 常见类型的assets包括静态数据（例如JSON文件）、配置文件、图标和图片（JPEG，WebP，GIF，动画WebP / GIF，PNG，BMP和WBMP）等。
+  # 加载文本assets通过rootBundle 对象加载：每个Flutter应用程序都有一个rootBundle对象， 通过它可以轻松访问主资源包，
+  # 直接使用package:flutter/services.dart中全局静态的rootBundle对象来加载asset即可。
+  # 通过 DefaultAssetBundle 加载：建议使用 DefaultAssetBundle 来获取当前BuildContext的AssetBundle。
+  # 这种方法不是使用应用程序构建的默认asset bundle，而是使父级widget在运行时动态替换的不同的AssetBundle，这对于本地化或测试场景很有用。
+
   assets:
-    - images/home_photo_type_1.png
+  - images/home_photo_type_1.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -70,3 +94,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
+
+
+# Flutter包管理器
