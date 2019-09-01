@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'demo_route/NewRoute.dart';
 import 'demo_debug/DebugPage.dart';
-import 'demo_widget/ParentWidgetC.dart';
-import 'demo_widget/TextDemo.dart';
-import 'demo_widget/WidgetListPage.dart';
-import 'demo_widget/ButtonDemo.dart';
-import 'demo_widget/ImageDemo.dart';
-import 'demo_widget/SwitchAndCheckBoxTestRoute.dart';
-import 'demo_widget/TextFieldDemo.dart';
-import 'demo_widget/FocusTestRoute.dart';
-import 'demo_widget/FormDemo.dart';
+import 'demo_basic_widget/ParentWidgetC.dart';
+import 'demo_basic_widget/TextDemo.dart';
+import 'demo_basic_widget/WidgetListPage.dart';
+import 'demo_basic_widget/ButtonDemo.dart';
+import 'demo_basic_widget/ImageDemo.dart';
+import 'demo_basic_widget/SwitchAndCheckBoxTestRoute.dart';
+import 'demo_basic_widget/TextFieldDemo.dart';
+import 'demo_basic_widget/FocusTestRoute.dart';
+import 'demo_basic_widget/FormDemo.dart';
 
 void main() => runApp(new MyApp());
 
