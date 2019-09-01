@@ -52,6 +52,13 @@ class WidgetListPage extends StatelessWidget {
               callback: () {
                 Navigator.pushNamed(context, "page_widget_focus");
               },
+            ),
+            new Tap(
+              item: "to form",
+              bgColor: Colors.black54,
+              callback: () {
+                Navigator.pushNamed(context, "page_widget_form");
+              },
             )
           ],
         ),

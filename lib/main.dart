@@ -9,6 +9,7 @@ import 'demo_widget/ImageDemo.dart';
 import 'demo_widget/SwitchAndCheckBoxTestRoute.dart';
 import 'demo_widget/TextFieldDemo.dart';
 import 'demo_widget/FocusTestRoute.dart';
+import 'demo_widget/FormDemo.dart';
 
 void main() => runApp(new MyApp());
 
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
             SwitchAndCheckBoxTestRoute(),
         "page_widget_text_field_demo": (context) => TextFieldDemo(),
         "page_widget_focus": (context) => FocusTestRoute(),
+        "page_widget_form": (context) => FormDemo(),
       },
     );
   }
