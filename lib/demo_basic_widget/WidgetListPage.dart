@@ -11,53 +11,60 @@ class WidgetListPage extends StatelessWidget {
       body: new Center(
         child: new Column(
           children: <Widget>[
-            new Tap(
+            Tap(
               item: "to Text",
               bgColor: Colors.black12,
               callback: () {
                 Navigator.pushNamed(context, "page_widget_text");
               },
             ),
-            new Tap(
+            Tap(
               item: "to Button",
               bgColor: Colors.black26,
               callback: () {
                 Navigator.pushNamed(context, "page_widget_button");
               },
             ),
-            new Tap(
+            Tap(
               item: "to Image",
               bgColor: Colors.black38,
               callback: () {
                 Navigator.pushNamed(context, "page_widget_image");
               },
             ),
-            new Tap(
+            Tap(
               item: "to switch / checkbox",
               bgColor: Colors.black45,
               callback: () {
                 Navigator.pushNamed(context, "page_widget_switch_checkbox");
               },
             ),
-            new Tap(
+            Tap(
               item: "to TextField",
               bgColor: Colors.black54,
               callback: () {
                 Navigator.pushNamed(context, "page_widget_text_field_demo");
               },
             ),
-            new Tap(
+            Tap(
               item: "to focus",
               bgColor: Colors.black87,
               callback: () {
                 Navigator.pushNamed(context, "page_widget_focus");
               },
             ),
-            new Tap(
+            Tap(
               item: "to form",
               bgColor: Colors.black54,
               callback: () {
                 Navigator.pushNamed(context, "page_widget_form");
+              },
+            ),
+            Tap(
+              item: "to stack",
+              bgColor: Colors.black87,
+              callback: () {
+                Navigator.pushNamed(context, "page_widget_stack");
               },
             )
           ],
