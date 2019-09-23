@@ -11,6 +11,13 @@ import 'demo_basic_widget/TextFieldDemo.dart';
 import 'demo_basic_widget/FocusTestRoute.dart';
 import 'demo_basic_widget/FormDemo.dart';
 import 'demo_basic_widget/StackDemo.dart';
+import 'demo_container_widget/PaddingDemo.dart';
+import 'demo_container_widget/ConstrainDemo.dart';
+import 'demo_container_widget/DecorationBoxDemo.dart';
+import 'demo_container_widget/TransformDemo.dart';
+import 'demo_container_widget/ContainerDemo.dart';
+import 'demo_container_widget/ScaffoldDemo.dart';
+import 'demo_container_widget/ScaffoldDemo2.dart';
 
 void main() => runApp(new MyApp());
 
@@ -33,6 +40,13 @@ class MyApp extends StatelessWidget {
         "page_widget_focus": (context) => FocusTestRoute(),
         "page_widget_form": (context) => FormDemo(),
         "page_widget_stack": (context) => StackDemo(),
+        "page_container_padding": (context) => PaddingDemo(),
+        "page_container_constraint": (context) => ConstraintDemo(),
+        "page_container_decoration": (context) => DecoratedBoxDemo(),
+        "page_container_transform": (context) => TransformDemo(),
+        "page_container_container": (context) => ContainerDemo(),
+        "page_container_scaffold": (context) => ScaffoldDemo(),
+        "page_container_scaffold2": (context) => ScaffoldDemo2(),
       },
     );
   }

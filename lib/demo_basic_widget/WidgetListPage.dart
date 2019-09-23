@@ -11,20 +11,20 @@ class WidgetListPage extends StatelessWidget {
       body: new Center(
         child: new Column(
           children: <Widget>[
-            Tap(
-              item: "to Text",
-              bgColor: Colors.black12,
-              callback: () {
-                Navigator.pushNamed(context, "page_widget_text");
-              },
-            ),
-            Tap(
-              item: "to Button",
-              bgColor: Colors.black26,
-              callback: () {
-                Navigator.pushNamed(context, "page_widget_button");
-              },
-            ),
+//            Tap(
+//              item: "to Text",
+//              bgColor: Colors.black12,
+//              callback: () {
+//                Navigator.pushNamed(context, "page_widget_text");
+//              },
+//            ),
+//            Tap(
+//              item: "to Button",
+//              bgColor: Colors.black26,
+//              callback: () {
+//                Navigator.pushNamed(context, "page_widget_button");
+//              },
+//            ),
             Tap(
               item: "to Image",
               bgColor: Colors.black38,
@@ -65,6 +65,54 @@ class WidgetListPage extends StatelessWidget {
               bgColor: Colors.black87,
               callback: () {
                 Navigator.pushNamed(context, "page_widget_stack");
+              },
+            ),
+            Tap(
+              item: "to padding",
+              bgColor: Colors.black54,
+              callback: () {
+                Navigator.pushNamed(context, "page_container_padding");
+              },
+            ),
+            Tap(
+              item: "to constraint",
+              bgColor: Colors.black45,
+              callback: () {
+                Navigator.pushNamed(context, "page_container_constraint");
+              },
+            ),
+            Tap(
+              item: "to decoration",
+              bgColor: Colors.black38,
+              callback: () {
+                Navigator.pushNamed(context, "page_container_decoration");
+              },
+            ),
+            Tap(
+                item: "to transform",
+                bgColor: Colors.black26,
+                callback: () {
+                  Navigator.pushNamed(context, "page_container_transform");
+                }),
+            Tap(
+              item: "to Container",
+              bgColor: Colors.black12,
+              callback: () {
+                Navigator.pushNamed(context, "page_container_container");
+              },
+            ),
+            Tap(
+              item: "to Scaffold",
+              bgColor: Colors.black26,
+              callback: () {
+                Navigator.pushNamed(context, "page_container_scaffold");
+              },
+            ),
+            Tap(
+              item: "to Scaffold2",
+              bgColor: Colors.black38,
+              callback: () {
+                Navigator.pushNamed(context, "page_container_scaffold2");
               },
             )
           ],
