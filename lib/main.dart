@@ -18,6 +18,9 @@ import 'demo_container_widget/TransformDemo.dart';
 import 'demo_container_widget/ContainerDemo.dart';
 import 'demo_container_widget/ScaffoldDemo.dart';
 import 'demo_container_widget/ScaffoldDemo2.dart';
+import 'demo_scroll_widget/SingleChildScrollViewDemo.dart';
+import 'demo_scroll_widget/ListViewDemo.dart';
+import 'demo_scroll_widget/InfiniteListView.dart';
 
 void main() => runApp(new MyApp());
 
@@ -47,6 +50,9 @@ class MyApp extends StatelessWidget {
         "page_container_container": (context) => ContainerDemo(),
         "page_container_scaffold": (context) => ScaffoldDemo(),
         "page_container_scaffold2": (context) => ScaffoldDemo2(),
+        "page_scroller_single_child": (context) => SingleChildScrollViewDemo(),
+        "page_scroller_listview":(context)=>ListViewDemo(),
+        "page_scroller_infinite":(context)=>InfiniteListView(),
       },
     );
   }
