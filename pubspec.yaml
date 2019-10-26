@@ -10,7 +10,7 @@ description: A new Flutter project. # 应用或包的描述、简介。
 version: 1.0.0+1 # 应用或包的版本号。
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.0 <3.0.0"
 
 dependencies: # 应用或包依赖的其它包或插件。
   flutter:

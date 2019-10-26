@@ -147,6 +147,76 @@ class WidgetListPage extends StatelessWidget {
           callback: () {
             Navigator.pushNamed(context, "page_scroller_infinite");
           },
+        ),
+        Tap(
+            item: "to Custom Scroll View",
+            bgColor: Colors.black38,
+            callback: () {
+              Navigator.pushNamed(
+                  context, "page_scroller_custom_scroller_view");
+            }),
+        Tap(
+          item: "inherited demo",
+          bgColor: Colors.black26,
+          callback: () {
+            Navigator.pushNamed(context, "page_fun_inherited");
+          },
+        ),
+        Tap(
+          item: "Theme Demo",
+          bgColor: Colors.black12,
+          callback: () {
+            Navigator.pushNamed(context, "page_fun_theme");
+          },
+        ),
+        Tap(
+          item: "Listener Demo",
+          bgColor: Colors.blue,
+          callback: () {
+            Navigator.pushNamed(context, "page_event_listener");
+          },
+        ),
+        Tap(
+          item: "Gesture Demo",
+          bgColor: Colors.lightBlue,
+          callback: () {
+            Navigator.pushNamed(context, "page_event_gesture");
+          },
+        ),
+        Tap(
+          item: "Gesture Recognizer Demo",
+          bgColor: Colors.red,
+          callback: () {
+            Navigator.pushNamed(context, "page_event_gesture_recognizer");
+          },
+        ),
+        Tap(
+          item: "page_event_gesture_arena_member",
+          bgColor: Colors.deepOrange,
+          callback: () {
+            Navigator.pushNamed(context, "page_event_gesture_arena_member");
+          },
+        ),
+        Tap(
+          item: "page event bus",
+          bgColor: Colors.green,
+          callback: () {
+            Navigator.pushNamed(context, "page_event_bus");
+          },
+        ),
+        Tap(
+          item: "page notification",
+          bgColor: Colors.deepOrange,
+          callback: () {
+            Navigator.pushNamed(context, "page_notification_demo");
+          },
+        ),
+        Tap(
+          item: "page scale anim",
+          bgColor: Colors.teal,
+          callback: () {
+            Navigator.pushNamed(context, "page_scale_anim");
+          },
         )
       ],
     );

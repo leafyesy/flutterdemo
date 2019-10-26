@@ -21,6 +21,18 @@ import 'demo_container_widget/ScaffoldDemo2.dart';
 import 'demo_scroll_widget/SingleChildScrollViewDemo.dart';
 import 'demo_scroll_widget/ListViewDemo.dart';
 import 'demo_scroll_widget/InfiniteListView.dart';
+import 'demo_scroll_widget/CustomScrollViewDemo.dart';
+
+import 'demo_function_widget/InheritedWidgetDemo.dart';
+import 'demo_function_widget/ThemeDemo.dart';
+import 'event/ListenerDemo.dart';
+import 'event/GestureDetectorTestRoute.dart';
+import 'event/GestureRecognizerTestRoute.dart';
+import 'event/GestureArenaMemberTestRoute.dart';
+import 'event/EventBusDemo.dart';
+
+import 'notification/NotificationTestRoute.dart';
+import 'anim/ScaleAnimationRoute.dart';
 
 void main() => runApp(new MyApp());
 
@@ -51,8 +63,21 @@ class MyApp extends StatelessWidget {
         "page_container_scaffold": (context) => ScaffoldDemo(),
         "page_container_scaffold2": (context) => ScaffoldDemo2(),
         "page_scroller_single_child": (context) => SingleChildScrollViewDemo(),
-        "page_scroller_listview":(context)=>ListViewDemo(),
-        "page_scroller_infinite":(context)=>InfiniteListView(),
+        "page_scroller_listview": (context) => ListViewDemo(),
+        "page_scroller_infinite": (context) => InfiniteListView(),
+        "page_scroller_custom_scroller_view": (context) =>
+            CustomScrollViewDemo(),
+        "page_fun_inherited": (context) => InheritedWidgetTestRoute(),
+        "page_fun_theme": (context) => ThemeDemo(),
+        "page_event_listener": (context) => ListenerDemo(),
+        "page_event_gesture": (context) => GestureDetectorTestRoute(),
+        "page_event_gesture_recognizer": (context) =>
+            GestureRecognizerTestRoute(),
+        "page_event_gesture_arena_member": (context) =>
+            GestureArenaMemberTestRoute(),
+        "page_event_bus": (context) => EventBusDemo(),
+        "page_notification_demo": (context) => NotificationTestRoute(),
+        "page_scale_anim": (context) => ScaleAnimationRoute(),
       },
     );
   }
