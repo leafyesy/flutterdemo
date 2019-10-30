@@ -33,6 +33,8 @@ import 'event/EventBusDemo.dart';
 
 import 'notification/NotificationTestRoute.dart';
 import 'anim/ScaleAnimationRoute.dart';
+import 'anim/HeroAnimationRoute.dart';
+import 'anim/StaggerAnimationRoute.dart';
 
 void main() => runApp(new MyApp());
 
@@ -78,6 +80,8 @@ class MyApp extends StatelessWidget {
         "page_event_bus": (context) => EventBusDemo(),
         "page_notification_demo": (context) => NotificationTestRoute(),
         "page_scale_anim": (context) => ScaleAnimationRoute(),
+        "page_hero_anim": (context) => HeroAnimationRoute(),
+        "page_stagger_anim":(context)=>StaggerAnimationRoute()
       },
     );
   }

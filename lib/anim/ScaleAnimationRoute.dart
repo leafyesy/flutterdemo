@@ -17,7 +17,7 @@ class _ScaleAnimationRouteState extends State<ScaleAnimationRoute>
     super.initState();
     controller =
         AnimationController(duration: const Duration(seconds: 3), vsync: this);
-    animation = Tween(begin: 0, end: 400.0).animate(controller);
+    animation = Tween(begin: 0.0, end: 400.0).animate(controller);
     animation.addListener(() {
       setState(() => {});
     });
