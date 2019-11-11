@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'demo_route/OldRoute.dart';
+import 'demo_basic_widget/WidgetListPage.dart';
+import 'RouteConfig.dart';
 
 void main() => runApp(new MyApp());
 
@@ -8,8 +9,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Flutter Demo',
-      //home: new HomePage(),
-      home: new OldRoute(),
+      color: Colors.white,
+      home: WidgetListPage(),
+      routes: RouteConfig().getRouteMap(),
     );
   }
 }

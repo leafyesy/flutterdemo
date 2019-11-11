@@ -15,29 +15,32 @@ environment:
 dependencies: # 应用或包依赖的其它包或插件。
   flutter:
     sdk: flutter
-
+  json_annotation:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   english_words: ^3.1.0
+
   camera:
   path_provider:
   path:
-    # 使用本地包 包名为pkg1
-#  pkg1:
-#    path: ../../code/pkg1
-    # 使用git仓库
+  # 使用本地包 包名为pkg1
+  #  pkg1:
+  #    path: ../../code/pkg1
+  # 使用git仓库
 #  pkg1:
 #    git:
 #      url: git://github.com/xxx/pkg1.git
 
 dev_dependencies: #开发环境依赖的工具包（而不是flutter应用本身依赖的包）。
+  build_runner:
+  json_serializable:
   flutter_test:
     sdk: flutter
   cupertino_icons: ^0.1.2
   english_words: ^3.1.0
   camera:
-  path_provider:
+  path_provider: ^0.4.1
   path:
 
 

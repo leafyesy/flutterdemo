@@ -45,6 +45,15 @@ class _MyCountHomePageState extends State<MyCountHomePage> {
       ),
     );
   }
+
+  @override
+  void didUpdateWidget(MyCountHomePage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+  }
+
+
+
 }
 
 /*

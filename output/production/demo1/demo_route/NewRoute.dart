@@ -12,6 +12,7 @@ class NewRoute extends StatelessWidget{
       body: new Center(
         child: new Text("center body"),
       ),
+
     );
   }
 
