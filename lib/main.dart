@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'demo_basic_widget/WidgetListPage.dart';
 import 'RouteConfig.dart';
+import 'MainPage.dart';
 
 void main() => runApp(new MyApp());
 
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Flutter Demo',
       color: Colors.white,
-      home: WidgetListPage(),
+      home: MainPage(),
       routes: RouteConfig().getRouteMap(),
     );
   }

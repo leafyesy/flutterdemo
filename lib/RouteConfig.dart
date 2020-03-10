@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'HomePage.dart';
 import 'demo_route/NewRoute.dart';
 import 'demo_debug/DebugPage.dart';
 import 'demo_basic_widget/ParentWidgetC.dart';
@@ -40,12 +41,15 @@ import 'demo_custom_widget/CustomPaintRoute.dart';
 
 import 'demo_file/FileOperationRoute.dart';
 import 'demo_http/HttpTestRoute.dart';
+import 'demo_basic_widget/WidgetListPage.dart';
 
 class RouteConfig {
   Map<String, WidgetBuilder> routeMap = new Map();
 
   Map<String, WidgetBuilder> getRouteMap() {
     return {
+      //基础组件和基础功能
+      "base_fun": (context) => WidgetListPage(),
       "new_route": (context) => NewRoute(),
       "page_debug": (context) => DebugPage(),
       "page_widget_text": (context) => TextDemo(),
@@ -85,6 +89,8 @@ class RouteConfig {
       "page_custom_paint": (context) => CustomPaintRoute(),
       "page_file": (context) => FileOperationRoute(),
       "page_http_test": (context) => HttpTestRoute(),
+      //---------------基础组件和基础功能
+      "id_photo": (context) => HomePage(),
     };
   }
 }
