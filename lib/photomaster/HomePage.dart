@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:demo1/PageDemo2.dart';
-import 'package:demo1/HomeItemPhotoType.dart';
+import 'HomeItemPhotoType.dart';
+import 'PageDemo2.dart';
 
 class HomePage extends StatefulWidget {
   @override
