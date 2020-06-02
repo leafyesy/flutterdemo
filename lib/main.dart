@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'file:///D:/flutterProject/flutterdemo-master/flutterdemo/lib/photomaster/HomePage.dart';
-
+import 'file:///D:/flutterProject/flutterdemo-master/flutterdemo/lib/photomaster/home_page.dart';
 
 void main() => runApp(new MyApp());
 
@@ -13,5 +12,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-

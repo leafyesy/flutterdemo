@@ -1,0 +1,26 @@
+import 'package:dio/dio.dart';
+import 'package:flutter_demo/base/net/code.dart';
+
+import '../result_data.dart';
+
+class ResponseInterceptor extends InterceptorsWrapper {
+  @override
+  onResponse(Response response) async {
+    var requestOptions = response.request;
+    var value;
+    try {
+      var header = response.headers[Headers.contentTypeHeader];
+      if (header != null && header.toString().contains("text")) {
+        value = new ResultData(response.data, true, Code.SUCCESS);
+      } else if (response.statusCode >= 200 && response.statusCode < 300) {
+        value = new ResultData(response.data, true, Code.SUCCESS,
+            headers: response.headers);
+      }
+    } catch (e) {
+      print(e);
+      value = new ResultData(response.data, false, response.statusCode,
+          headers: response.headers);
+    }
+    return value;
+  }
+}
