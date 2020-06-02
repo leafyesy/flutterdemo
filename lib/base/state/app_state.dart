@@ -7,7 +7,7 @@ import 'package:flutter_demo/redux/middleware/epic_middleware.dart';
 import 'package:flutter_demo/redux/user_redux.dart';
 import 'package:redux/redux.dart';
 
-class UserState {
+class AppState {
   User userInfo;
 
   ThemeData themeData;
@@ -20,11 +20,11 @@ class UserState {
 
   bool isLogin;
 
-  UserState({this.userInfo, this.themeData, this.locale, this.isLogin});
+  AppState({this.userInfo, this.themeData, this.locale, this.isLogin});
 }
 
-UserState appReducer(UserState state, action) {
-  return UserState(
+AppState appReducer(AppState state, action) {
+  return AppState(
     userInfo: UserReducer(state.userInfo, action),
     themeData: ThemeDataReducer(state.themeData, action),
     locale: LocaleReducer(state.locale, action),
@@ -32,10 +32,10 @@ UserState appReducer(UserState state, action) {
   );
 }
 
-final List<Middleware<UserState>> middleware = [
-  EpicMiddleware<UserState>(loginEpic),
-  EpicMiddleware<UserState>(userInfoEpic),
-  EpicMiddleware<UserState>(oauthEpic),
+final List<Middleware<AppState>> middleware = [
+  EpicMiddleware<AppState>(loginEpic),
+  EpicMiddleware<AppState>(userInfoEpic),
+  EpicMiddleware<AppState>(oauthEpic),
   UserInfoMiddleware(),
   LoginMiddleware(),
 ];

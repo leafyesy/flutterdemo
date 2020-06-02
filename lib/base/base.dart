@@ -6,7 +6,7 @@ import 'package:flutter_demo/base/event/event.dart';
 import 'package:flutter_demo/base/localization/def_localizations.dart';
 import 'package:flutter_demo/base/model/user.dart';
 import 'package:flutter_demo/base/net/code.dart';
-import 'package:flutter_demo/base/state/user_state.dart';
+import 'package:flutter_demo/base/state/app_state.dart';
 import 'package:flutter_demo/base/style/ye_style.dart';
 import 'package:flutter_demo/utils/common_utils.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -18,9 +18,9 @@ class FlutterReduxApp extends StatefulWidget {
 }
 
 class _FlutterReduxAppState extends State {
-  final store = new Store<UserState>(appReducer,
+  final store = new Store<AppState>(appReducer,
       middleware: middleware,
-      initialState: new UserState(
+      initialState: new AppState(
           userInfo: User.empty(),
           isLogin: false,
           themeData: CommonUtils.getThemeData(YeColors.primaryDarkValue),

@@ -3,7 +3,7 @@ import 'package:flutter_demo/base/model/user.dart';
 import 'package:flutter_demo/redux/middleware/epic_store.dart';
 import 'package:redux/redux.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:flutter_demo/base/state/user_state.dart';
+import 'package:flutter_demo/base/state/app_state.dart';
 
 final UserReducer = combineReducers<User>([
   TypedReducer<User, UpdateUserAction>(_updateLoaded),
@@ -22,9 +22,9 @@ class UpdateUserAction {
 
 class FetchUserAction {}
 
-class UserInfoMiddleware implements MiddlewareClass<UserState> {
+class UserInfoMiddleware implements MiddlewareClass<AppState> {
   @override
-  call(Store<UserState> store, action, next) {
+  call(Store<AppState> store, action, next) {
     if (action is UpdateUserAction) {
       print("*****************UserInfoMiddleware******************");
     }
@@ -33,7 +33,7 @@ class UserInfoMiddleware implements MiddlewareClass<UserState> {
 }
 
 Stream<dynamic> userInfoEpic(
-    Stream<dynamic> actions, EpicStore<UserState> store) {
+    Stream<dynamic> actions, EpicStore<AppState> store) {
   // Use the async* function to make easier
   Stream<dynamic> _loadUserInfo() async* {
     print("*************************");

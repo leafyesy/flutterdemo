@@ -6,7 +6,7 @@ import 'package:flutter_demo/utils/common_utils.dart';
 import 'package:flutter_demo/utils/navigator_utils.dart';
 import 'package:redux/redux.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:flutter_demo/base/state/user_state.dart';
+import 'package:flutter_demo/base/state/app_state.dart';
 
 final LoginReducer = combineReducers<bool>([
   TypedReducer<bool, LoginSuccessAction>(_loginResult),
@@ -52,9 +52,9 @@ class OAuthAction {
   OAuthAction(this.context, this.code);
 }
 
-class LoginMiddleware implements MiddlewareClass<UserState> {
+class LoginMiddleware implements MiddlewareClass<AppState> {
   @override
-  call(Store<UserState> store, action, next) {
+  call(Store<AppState> store, action, next) {
     if (action is LogoutAction) {
       UserDao.clearAll(store);
       SqlManager.close();
@@ -64,9 +64,9 @@ class LoginMiddleware implements MiddlewareClass<UserState> {
   }
 }
 
-Stream<dynamic> loginEpic(Stream<dynamic> actions, EpicStore<UserState> store) {
+Stream<dynamic> loginEpic(Stream<dynamic> actions, EpicStore<AppState> store) {
   Stream<dynamic> _loginIn(
-      LoginAction action, EpicStore<UserState> store) async* {
+      LoginAction action, EpicStore<AppState> store) async* {
     CommonUtils.showLoadingDialog(action.context);
     var res = await UserDao.login(
         action.username.trim(), action.password.trim(), store);
@@ -79,9 +79,9 @@ Stream<dynamic> loginEpic(Stream<dynamic> actions, EpicStore<UserState> store) {
       .switchMap((action) => _loginIn(action, store));
 }
 
-Stream<dynamic> oauthEpic(Stream<dynamic> actions, EpicStore<UserState> store) {
+Stream<dynamic> oauthEpic(Stream<dynamic> actions, EpicStore<AppState> store) {
   Stream<dynamic> _loginIn(
-      OAuthAction action, EpicStore<UserState> store) async* {
+      OAuthAction action, EpicStore<AppState> store) async* {
     CommonUtils.showLoadingDialog(action.context);
     var res = await UserDao.oauth(action.code, store);
     Navigator.pop(action.context);
