@@ -4,12 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/base/event/http_error_event.dart';
 import 'package:flutter_demo/base/event/event.dart';
 import 'package:flutter_demo/base/localization/def_localizations.dart';
+import 'package:flutter_demo/base/localization/ye_localizations_delegate.dart';
 import 'package:flutter_demo/base/model/user.dart';
 import 'package:flutter_demo/base/net/code.dart';
 import 'package:flutter_demo/base/state/app_state.dart';
 import 'package:flutter_demo/base/style/ye_style.dart';
+import 'package:flutter_demo/github/page/welcome/welcome_page.dart';
+import 'package:flutter_demo/github/routes.dart';
 import 'package:flutter_demo/utils/common_utils.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:redux/redux.dart';
 
 class FlutterReduxApp extends StatefulWidget {
@@ -17,9 +22,15 @@ class FlutterReduxApp extends StatefulWidget {
   State<StatefulWidget> createState() => _FlutterReduxAppState();
 }
 
-class _FlutterReduxAppState extends State {
+class _FlutterReduxAppState extends State<FlutterReduxApp>
+    with HttpErrorListener {
+  //创建一个全局使用的store
   final store = new Store<AppState>(appReducer,
+
+      ///中间件 拦截器
       middleware: middleware,
+
+      ///初始化数据
       initialState: new AppState(
           userInfo: User.empty(),
           isLogin: false,
@@ -28,8 +39,26 @@ class _FlutterReduxAppState extends State {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return StoreProvider<AppState>(
+      store: store,
+      child: new StoreBuilder<AppState>(builder: (context, store) {
+        store.state.platformLocale = WidgetsBinding.instance.window.locale;
+        return new MaterialApp(
+
+            ///多语言实现代理
+            localizationsDelegates: [
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              YeLocalizationsDelegate.delegate
+            ],
+            supportedLocales: [
+              store.state.locale
+            ],
+            theme: store.state.themeData,
+            routes: Routes.getRoutes(context, this),
+            initialRoute: WelcomePage.sName);
+      }),
+    );
   }
 }
 
@@ -38,12 +67,25 @@ mixin HttpErrorListener on State<FlutterReduxApp> {
 
   BuildContext _context;
 
+  setContext(BuildContext context) {
+    this._context = context;
+  }
+
   @override
   void initState() {
     super.initState();
     stream = eventBus.on<HttpErrorEvent>().listen((event) {
       errorHandleFunction(event.code, event.message);
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    if (stream != null) {
+      stream.cancel();
+      stream = null;
+    }
   }
 
   errorHandleFunction(int code, message) {

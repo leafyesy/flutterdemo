@@ -26,7 +26,7 @@ class UserDao {
       var result = Uri.parse("gsy://oauth?${res.data}");
       var token = result.queryParameters['access_token'];
       var _token = "token$token";
-      await LocalStorage.save(Config.TOKEN_KEY, _token);
+      await LocalStorage.putString(Config.TOKEN_KEY, _token);
       var resultData = await getUserInfo(null);
       if (Config.DEBUG) {
         print("user result:${resultData.result.toString()}");

@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/base/localization/def_string_base.dart';
+import 'package:flutter_demo/github/language/cn_string.dart';
+import 'package:flutter_demo/github/language/en_string.dart';
 
 ///多语言实现
 class DefLocalizations {
@@ -9,7 +11,10 @@ class DefLocalizations {
 
   DefLocalizations(this.locale);
 
-  static Map<String, DefStringBase> _localizedValues = {};
+  static Map<String, DefStringBase> _localizedValues = {
+    "en":EnString(),
+    "zh":CnString(),
+  };
 
   ///    'en': new StringEn(),
   ///    'zh': new StringZh(),

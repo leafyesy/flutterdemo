@@ -1,18 +1,15 @@
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flustars/flustars.dart';
 
 class LocalStorage {
-  static save(String key, value) async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    sp.setString(key, value);
+  static putString(String key, String value) async {
+    SpUtil.putString(key, value);
   }
 
-  static get(String key) async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    return sp.get(key);
+  static getString(String key) async {
+    SpUtil.getString(key);
   }
 
   static remove(String key) async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    sp.remove(key);
+    SpUtil.remove(key);
   }
 }

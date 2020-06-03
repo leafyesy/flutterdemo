@@ -26,7 +26,7 @@ class TokenInterceptors extends InterceptorsWrapper {
       var responseJson = response.data;
       if (response.statusCode == 201 && responseJson['token'] != null) {
         _token = 'token' + responseJson['token'];
-        await LocalStorage.save(Config.TOKEN_KEY, _token);
+        await LocalStorage.putString(Config.TOKEN_KEY, _token);
       }
     } catch (e) {
       print(e);
@@ -41,9 +41,9 @@ class TokenInterceptors extends InterceptorsWrapper {
   }
 
   getAuthorization() async {
-    String token = await LocalStorage.get(Config.TOKEN_KEY);
+    String token = await LocalStorage.getString(Config.TOKEN_KEY);
     if (token == null) {
-      String basic = await LocalStorage.get(Config.USER_BASIC_CODE);
+      String basic = await LocalStorage.getString(Config.USER_BASIC_CODE);
       if (basic == null) {
         //提示输入账号密码
       } else {

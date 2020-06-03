@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:connectivity/connectivity.dart';
+//import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_demo/base/net/code.dart';
 import 'package:flutter_demo/base/net/result_data.dart';
@@ -16,13 +16,13 @@ class ErrorInterceptor extends InterceptorsWrapper {
 
   @override
   Future onRequest(RequestOptions options) async {
-    var connectivityResult = await (new Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.none) {
-      return _dio.resolve(new ResultData(
-          Code.errorHandleFunction(Code.NETWORK_ERROR, "", false),
-          false,
-          Code.NETWORK_ERROR));
-    }
+//    var connectivityResult = await (new Connectivity().checkConnectivity());
+//    if (connectivityResult == ConnectivityResult.none) {
+//      return _dio.resolve(new ResultData(
+//          Code.errorHandleFunction(Code.NETWORK_ERROR, "", false),
+//          false,
+//          Code.NETWORK_ERROR));
+//    }
     return options;
   }
 }

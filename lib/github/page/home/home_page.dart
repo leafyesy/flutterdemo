@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-
-class HomePage extends StatefulWidget{
+class HomePage extends StatefulWidget {
   static const String sName = "home";
 
   @override
@@ -9,8 +8,4 @@ class HomePage extends StatefulWidget{
     // TODO: implement createState
     throw UnimplementedError();
   }
-
-
-
-
 }
