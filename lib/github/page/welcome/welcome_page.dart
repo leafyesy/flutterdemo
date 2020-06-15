@@ -3,16 +3,46 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/base/state/app_state.dart';
 import 'package:flutter_demo/base/style/ye_style.dart';
 import 'package:flutter_demo/github/res.dart';
+import 'package:flutter_demo/utils/navigator_utils.dart';
+import 'package:flutter_demo/widget/diff_scale_text.dart';
+import 'package:flutter_demo/widget/diff_scale_text2.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 class WelcomePage extends StatefulWidget {
-  static final String sName = "welcome";
+  static final String sName = "";
 
   @override
   State<StatefulWidget> createState() => _WelcomePageState();
 }
 
 class _WelcomePageState extends State<WelcomePage> {
+  static const String _FIRST_TEXT = "WELCOME TO FLUTTER";
+
+  static const String _SECOND_TEXT = "LET'S GO";
+
+  String text = "-";
+
+  bool isShowEntry = false;
+
+  void _delayChange(String text, int time, afterDelay) {
+    Future.delayed(Duration(milliseconds: time), () {
+      setState(() {
+        this.text = text;
+        afterDelay();
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _delayChange(_FIRST_TEXT, 2000, () {
+      _delayChange(_SECOND_TEXT, 2000, () {
+        isShowEntry = true;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return StoreBuilder<AppState>(
@@ -26,19 +56,51 @@ class _WelcomePageState extends State<WelcomePage> {
             child: Stack(
               children: <Widget>[
                 new Image(
-                    fit: BoxFit.cover,//宽度充满
+                    fit: BoxFit.cover, //宽度充满
                     width: width,
                     height: height,
                     image: AssetImage(YeGitRes.welcome)),
-//                Align(
-//                  alignment: Alignment(0.0,0.3),
-//                  child: DiffSca,
-//                )
+                Align(
+                  alignment: Alignment(0.0, 0.0),
+                  child: DiffScaleText(
+                    text: text,
+                    textStyle: TextStyle(fontSize: 30),
+                  ),
+                ),
+                if (isShowEntry) getEntryButton()
               ],
             ),
           ),
         );
       },
     );
+  }
+
+  Widget getEntryButton() {
+    return Align(
+        alignment: Alignment(0, 0.9),
+        child: GestureDetector(
+          onTap: () {
+            //进入home
+            NavigatorUtils.goLogin(context);
+            //NavigatorUtils.goHome(context);
+          },
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                  color: Colors.orange,
+                  height: 60,
+                  width: 150,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "ENTRY",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ))),
+        ));
   }
 }

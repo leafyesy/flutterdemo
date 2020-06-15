@@ -1,6 +1,5 @@
-class Config{
-
-  static bool DEBUG = true;
+class Config {
+  static const bool DEBUG = true;
 
   static const PAGE_SIZE = 20;
 
@@ -15,5 +14,4 @@ class Config{
   static const REFRESH_LANGUAGE = "refreshLanguageApp";
   static const THEME_COLOR = "theme-color";
   static const LOCALE = "locale";
-
 }
