@@ -17,4 +17,8 @@ abstract class DefStringBase {
 
   String get github_refused;
 
+  String get login_username_hint_text;
+
+  String get login_password_hint_text;
+
 }

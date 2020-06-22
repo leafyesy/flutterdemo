@@ -5,7 +5,7 @@ import 'package:flutter_demo/base/style/ye_style.dart';
 import 'package:flutter_demo/github/res.dart';
 import 'package:flutter_demo/utils/navigator_utils.dart';
 import 'package:flutter_demo/widget/diff_scale_text.dart';
-import 'package:flutter_demo/widget/diff_scale_text2.dart';
+import 'package:flutter_demo/widget/radius_button.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -85,22 +85,7 @@ class _WelcomePageState extends State<WelcomePage> {
             NavigatorUtils.goLogin(context);
             //NavigatorUtils.goHome(context);
           },
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Container(
-                  color: Colors.orange,
-                  height: 60,
-                  width: 150,
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "ENTRY",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ))),
+          child: RadiusButton(Colors.orange, 150, 60, 30, text: "ENTRY"),
         ));
   }
 }

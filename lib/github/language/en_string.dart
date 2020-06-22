@@ -25,6 +25,13 @@ class EnString extends DefStringBase {
   @override
   String get github_refused => "refused";
 
+  @override
+  // TODO: implement login_password_hint_text
+  String get login_password_hint_text => "please input login password";
+
+  @override
+  String get login_username_hint_text => "please input username";
+
 //  @override
 //  // TODO: implement Login_out
 //  String get Login_out => throw UnimplementedError();

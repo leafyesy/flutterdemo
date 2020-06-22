@@ -57,6 +57,12 @@ class CnString extends DefStringBase {
 //  String get app_version_title => "版本title";
   @override
   String get github_refused => "拒绝";
+
+  @override
+  String get login_password_hint_text => "请输入登录密码";
+
+  @override
+  String get login_username_hint_text => "请输入用户名";
 //
 //  @override
 //  String get home_about => "关于";
