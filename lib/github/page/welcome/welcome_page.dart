@@ -1,3 +1,4 @@
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/base/state/app_state.dart';
@@ -65,6 +66,17 @@ class _WelcomePageState extends State<WelcomePage> {
                   child: DiffScaleText(
                     text: text,
                     textStyle: TextStyle(fontSize: 30),
+                  ),
+                ),
+                new Align(
+                  alignment: Alignment.bottomCenter,
+                  child: new Container(
+                    width: size,
+                    height: size,
+                    child: new FlareActor("static/file/flare_flutter_logo_.flr",
+                        alignment: Alignment.topCenter,
+                        fit: BoxFit.fill,
+                        animation: "Placeholder"),
                   ),
                 ),
                 if (isShowEntry) getEntryButton()

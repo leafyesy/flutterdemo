@@ -1,7 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter_demo/base/localization/def_localizations.dart';
+import 'package:flutter_demo/base/localization/def_string_base.dart';
+import 'package:flutter_demo/base/style/ye_style.dart';
 import 'package:flutter_demo/utils/navigator_utils.dart';
+import 'package:flutter_demo/widget/spin_kit_cube_grid.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +27,48 @@ class CommonUtils {
   }
 
   static Future<Null> showLoadingDialog(BuildContext context) {
-    return NavigatorUtils.showFDialog(context: context);
+    return NavigatorUtils.showFDialog(
+        bcontext: context,
+        builder: (BuildContext context) {
+          return Material(
+            color: Colors.transparent,
+            child: WillPopScope(
+                child: Center(
+                  child: Container(
+                    width: 200.0,
+                    height: 200.0,
+                    padding: EdgeInsets.all(4.0),
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          child: SpinKitCubeGrid(
+                            color: YeColors.white,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 10.0),
+                        ),
+                        Container(
+                          child: Text(
+                            DefLocalizations.i18n(context).loading_text,
+                            style: TextStyle(
+                                color: YeColors.textColorWhite, fontSize: 18.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                onWillPop: () {
+                  return Future.value(false);
+                }),
+          );
+        });
   }
 
   static getThemeData(Color color) {

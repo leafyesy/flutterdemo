@@ -3,8 +3,17 @@ import 'package:flutter_demo/base/anim/animated_background.dart';
 import 'package:flutter_demo/base/config.dart';
 import 'package:flutter_demo/base/local/local_storage.dart';
 import 'package:flutter_demo/base/localization/def_localizations.dart';
+import 'package:flutter_demo/base/state/app_state.dart';
+import 'package:flutter_demo/base/style/ye_style.dart';
+import 'package:flutter_demo/redux/login_reducer.dart';
+import 'package:flutter_demo/utils/navigator_utils.dart';
 import 'package:flutter_demo/widget/particle/particles_widget.dart';
+import 'package:flutter_demo/widget/ye_flex_button.dart';
 import 'package:flutter_demo/widget/ye_input_edit_text.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import "package:fluttertoast/fluttertoast.dart";
+import '../res.dart';
+import '';
 
 class LoginPage extends StatefulWidget {
   static const sName = "login";
@@ -53,9 +62,12 @@ class _LoginPageState extends State<LoginPage> with LoginBLoC {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-//                Image(
-//                  image: AssetImage(),
-//                )
+                  Image(
+                    fit: BoxFit.cover,
+                    width: 100,
+                    height: 100,
+                    image: AssetImage(YeGitRes.logo),
+                  ),
                   Padding(
                     padding: EdgeInsets.all(10),
                   ),
@@ -76,6 +88,27 @@ class _LoginPageState extends State<LoginPage> with LoginBLoC {
                   ),
                   Padding(
                     padding: EdgeInsets.all(10),
+                  ),
+                  Container(
+                    height: 50,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: YeFlexButton(
+                            onPress: () {
+                              //loginIn();
+                              NavigatorUtils.goHome(context);
+                            },
+                            textColor: YeColors.white,
+                            color: YeColors.actionBlue,
+                            text: DefLocalizations.i18n(context).login_text,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 20),
                   )
                 ],
               ),
@@ -126,11 +159,17 @@ mixin LoginBLoC on State<LoginPage> {
 
   loginIn() async {
     if (_userName == null || _userName.isEmpty) {
+      Fluttertoast.showToast(
+          msg: DefLocalizations.i18n(context).login_username_hint_text);
       return;
     }
     if (_password == null || _password.isEmpty) {
+      Fluttertoast.showToast(
+          msg: DefLocalizations.i18n(context).login_password_hint_text);
       return;
     }
     //去执行登录
+    StoreProvider.of<AppState>(context)
+        .dispatch(LoginAction(context, _userName, _password));
   }
 }
