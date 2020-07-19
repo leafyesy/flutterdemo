@@ -67,6 +67,7 @@ class LoginMiddleware implements MiddlewareClass<AppState> {
 Stream<dynamic> loginEpic(Stream<dynamic> actions, EpicStore<AppState> store) {
   Stream<dynamic> _loginIn(
       LoginAction action, EpicStore<AppState> store) async* {
+    print("loginReducer:start login");
     CommonUtils.showLoadingDialog(action.context);
     var res = await UserDao.login(
         action.username.trim(), action.password.trim(), store);

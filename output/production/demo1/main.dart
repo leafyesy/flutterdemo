@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/base/base.dart';
 import 'package:flutter_demo/base/page/error_page.dart';
-import 'file:///D:/flutterProject/flutterdemo-master/flutterdemo/lib/photomaster/home_page.dart';
 import 'package:flutter_demo/github/base/init.dart';
 
 void main() => runZoned(() {

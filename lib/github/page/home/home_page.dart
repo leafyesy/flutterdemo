@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/github/page/dynamic/dynamic_page.dart';
 
 class HomePage extends StatefulWidget {
   static const String sName = "home";
